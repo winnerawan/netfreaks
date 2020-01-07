@@ -52,7 +52,7 @@ class ApiController extends Controller
         $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
                 ->whereRaw("rating REGEXP '^-?[0-9]+$'")
                 ->select('movies.*')
-                ->paginate(10)->orderBy('rating', 'DESC');
+                ->paginate(10);
         return response($movies)
         ->header('Content-Type', 'application/json');
     }
@@ -60,7 +60,8 @@ class ApiController extends Controller
     public function latests() {        
         $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
                 ->select('movies.*')
-                ->paginate(10)->orderByRaw("RAND()");
+                ->orderByRaw("RAND()")
+                ->paginate(10);
         return response($movies)
         ->header('Content-Type', 'application/json');
     }
