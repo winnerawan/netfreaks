@@ -59,7 +59,7 @@ class ApiController extends Controller
 
     public function latests() {        
         $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
-                ->select('movies.*')
+                ->select('movies.*')->orderBy('release', 'ASC')
                 ->orderBy('created_at', 'DESC')
                 ->paginate(10);
         return response($movies)
