@@ -306,7 +306,7 @@ class AdminController extends Controller
                 $this->insertData[] = $data;
             }
         }
-       // dd($this->insertData);
+       dd($this->insertData);
        Medoo::insert('movies', $this->insertData);    
     }
 
@@ -342,23 +342,27 @@ class AdminController extends Controller
         $data['title'] = trim(preg_replace('/\s+/', ' ', preg_replace('/[[:^print:]]/', ' ', trim($item[8]))));
         $data['quality'] = trim($item[4]);
         $data['country'] = trim($item[0]);
-        $data['release'] = trim($item[6]);
+        $data['release'] = $this->convertDate(trim($item[6]));
         $data['synopsis'] = trim(preg_replace('/\s+/', ' ', preg_replace('/[[:^print:]]/', ' ', trim($item[7]))));
         $data['poster'] = trim($item[3]); //preg_replace('/[[:^print:]]/', ' ', trim($item[1]));
         $data['genres'] = json_encode(explode(',', trim($item[1])));
         $data['rating'] = trim($item[5]);
-        $slug = preg_replace('/[[:^print:]]/', ' ', trim($item[8]));
-        $slug = str_replace(' ', '-', $slug);
-        $slug = strtolower(preg_replace("/[^a-zA-Z]/", "-", $slug));
-        $slug = trim(preg_replace('/-+/', '-', $slug), '-');
+        // $slug = preg_replace('/[[:^print:]]/', ' ', trim($item[8]));
+        // $slug = str_replace(' ', '-', $slug);
+        // $slug = strtolower(preg_replace("/[^a-zA-Z]/", "-", $slug));
+        // $slug = trim(preg_replace('/-+/', '-', $slug), '-');
+        $slug = trim(preg_replace('/\s+/', ' ', preg_replace('/[[:^print:]]/', ' ', trim($item[2]))));
+        $slug = str_replace('https://d21.tv/', '', $slug);
+        $slug = str_replace('/', '', $slug);
         $data['slug'] = $slug;
         $data['link'] = trim($item[2]);
+        $data['created_at'] = $this->convertDate(trim($item[6]));
         $data['updated_at'] = \Carbon\Carbon::now('Asia/Jakarta')->toDateTimeString();
         return $data;
     }
 
     protected function convertDate($date) {
-        
+        return date('Y-m-d', strtotime($date));
     }
 
     
