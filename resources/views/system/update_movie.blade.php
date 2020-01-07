@@ -38,7 +38,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
                                 RATING
@@ -47,33 +47,51 @@
                                 value="{{old('rating', $record->rating)}}">
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
-                                GENRE
+                                QUALITY
                             </label>
-                            <input required type="text" name="genre" class="form-control"
-                                value="{{old('genre', $record->genre)}}">
+                            <input required type="text" name="quality" class="form-control"
+                                value="{{old('quality', $record->quality)}}">
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
-                                URL
+                                COUNTRY
                             </label>
-                            <input required type="text" name="url" class="form-control"
-                                value="{{old('url', $record->url)}}">
+                            <input required type="text" name="country" class="form-control"
+                                value="{{old('country', $record->country)}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="form-label">
+                                Release
+                            </label>
+                            <input required type="text" name="release" class="form-control"
+                                value="{{old('release', $record->release)}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label class="form-label">
+                                LINK
+                            </label>
+                            <input required type="text" name="link" class="form-control"
+                                value="{{old('link', $record->link)}}">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="form-label">
-                                DESCRIPTION
+                                SYNOPSIS
                             </label>
-                            <textarea rows="3" required type="text" name="description" class="form-control">
-                                {{old('description', $record->description)}}
+                            <textarea rows="3" required type="text" name="synopsis" class="form-control">
+                                {{old('synopsis', $record->synopsis)}}
                             </textarea>
                         </div>
                     </div>

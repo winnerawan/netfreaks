@@ -296,21 +296,6 @@ class AdminController extends Controller
         $this->decodeData = $this->fileJson['data'];
     }
 
-
-    /**
-     */
-    protected function insertRecord(Request $request)
-    {
-        foreach ($this->decodeData as $item) {
-            $data = $this->wrapItemValues($request, $this->readItemValues($item));
-            if ($data != null) {
-                $this->insertData[] = $data;
-            }
-        }
-        dd($this->insertData);
-       Medoo::insert('dramas', $this->insertData);    
-    }
-
     /**
      */
     protected function insertRecordMovies(Request $request)
@@ -321,7 +306,7 @@ class AdminController extends Controller
                 $this->insertData[] = $data;
             }
         }
-       dd($this->insertData);
+       // dd($this->insertData);
        Medoo::insert('movies', $this->insertData);    
     }
 
@@ -472,12 +457,15 @@ class AdminController extends Controller
 
     public function createMoviePost(Request $request) {
         $movie = new \App\Movie();
+        $movie->id = \App\Uid::number();
         $movie->title = $request->title;
-        $movie->description = $request->description;
-        $movie->url = $request->url;
+        $movie->synopsis = $request->synopsis;
+        $movie->link = $request->link;
         $movie->rating = $request->rating;
-        $movie->genres = $request->genre;
         $movie->poster = $request->poster;
+        $movie->country = $request->country;
+        $movie->quality = $request->quality;
+        $movie->release = $request->release;
         $slug = preg_replace('/[[:^print:]]/', ' ', trim($request->title));
         $slug = str_replace(' ', '-', $slug);
         $slug = strtolower(preg_replace("/[^a-zA-Z]/", "-", $slug));
@@ -496,11 +484,13 @@ class AdminController extends Controller
     public function editMoviePost(Request $request, $id) {
         $movie = \App\Movie::findOrFail($id);
         $movie->title = $request->title;
-        $movie->description = $request->description;
-        $movie->url = $request->url;
+        $movie->synopsis = $request->synopsis;
+        $movie->link = $request->link;
         $movie->rating = $request->rating;
-        $movie->genres = $request->genre;
         $movie->poster = $request->poster;
+        $movie->country = $request->country;
+        $movie->quality = $request->quality;
+        $movie->release = $request->release;
         $slug = preg_replace('/[[:^print:]]/', ' ', trim($request->title));
         $slug = str_replace(' ', '-', $slug);
         $slug = strtolower(preg_replace("/[^a-zA-Z]/", "-", $slug));
