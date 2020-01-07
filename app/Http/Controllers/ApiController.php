@@ -19,7 +19,7 @@ class ApiController extends Controller
 
     public function news() {
         $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
-                ->select('movies.*')->orderBy('release', 'DESC')
+                ->select('movies.*')->orderBy('release', 'ASC')
                 ->paginate(10);
         return response($movies)
         ->header('Content-Type', 'application/json');
