@@ -202,44 +202,8 @@
                             </center>
                             @endif
                         </td>
-                        {{-- <td colspan="2" align="center">
-                            <form method="post" action="{{ route('system.removeDraft') }}" accept-charset="UTF-8"
-                                autocomplete="off">
-                                {{csrf_field()}}
-                                <input type="hidden" name="xls_id" value="{{ $record->id }}">
-                                <button type="submit" class="btn btn-sm btn-white process">
-                                    <i class="icon-trash"></i>
-                                    &nbsp;
-                                    Delete
-                                </button>
-                            </form>
-                        </td> --}}
                         @else
-                        <td colspan="2" align="center">
-                            <form method="post" action="{{ route('system.insertDrama') }}" accept-charset="UTF-8"
-                                autocomplete="off">
-                                {{csrf_field()}}
-                                <input type="hidden" name="xls_id" value="{{ $record->id }}">
-                                <input type="hidden" name="language_id" value="{{ $record->language_id }}">
-                                <button type="submit" class="btn btn-sm btn-white process">
-                                    <i class="icon-reload"></i>
-                                    &nbsp;
-                                    Re-Process
-                                </button>
-                            </form>
-                        </td>
-                        {{-- <td colspan="2" align="center">
-                            <form method="post" action="{{ route('system.removeDraft') }}" accept-charset="UTF-8"
-                                autocomplete="off">
-                                {{csrf_field()}}
-                                <input type="hidden" name="xls_id" value="{{ $record->id }}">
-                                <button type="submit" class="btn btn-sm btn-white process">
-                                    <i class="icon-trash"></i>
-                                    &nbsp;
-                                    Delete
-                                </button>
-                            </form>
-                        </td> --}}
+                        
                         @endif
                     </tr>
                     @endforeach
