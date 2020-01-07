@@ -37,19 +37,15 @@ Route::get('system/deleteGenre/{id}', 'AdminController@deleteGenre')->middleware
 
 
 Route::post('system/upload', 'AdminController@upload')->middleware(['auth'])->name('system.upload');
-Route::post('system/insertDrama', 'AdminController@insertDrama')->middleware(['auth'])->name('system.insertDrama');
 Route::post('system/insertMovie', 'AdminController@insertMovie')->middleware(['auth'])->name('system.insertMovie');
 Route::post('system/removeDraft', 'AdminController@removeDraft')->middleware(['auth'])->name('system.removeDraft');
-Route::get('system/dramas', 'AdminController@dramas')->middleware(['auth'])->name('system.dramas');
-Route::get('system/editDrama/{id}', 'AdminController@editDrama')->middleware(['auth'])->name('system.editDrama');
-Route::post('system/editDramaPost/{id}', 'AdminController@editDramaPost')->middleware(['auth'])->name('system.editDramaPost');
 
 Route::get('system/searchDrama', 'SearchController@searchDrama')->middleware(['auth'])->name('system.searchDrama');
 
-Route::get('system/tags', 'AdminController@tags')->middleware(['auth'])->name('system.tags');
-Route::get('system/createTag', 'AdminController@createTag')->middleware(['auth'])->name('system.createTag');
-Route::post('system/createTagPost', 'AdminController@createTagPost')->middleware(['auth'])->name('system.createTagPost');
-Route::get('system/deleteTag/{id}', 'AdminController@deleteTag')->middleware(['auth'])->name('system.deleteTag');
+// Route::get('system/tags', 'AdminController@tags')->middleware(['auth'])->name('system.tags');
+// Route::get('system/createTag', 'AdminController@createTag')->middleware(['auth'])->name('system.createTag');
+// Route::post('system/createTagPost', 'AdminController@createTagPost')->middleware(['auth'])->name('system.createTagPost');
+// Route::get('system/deleteTag/{id}', 'AdminController@deleteTag')->middleware(['auth'])->name('system.deleteTag');
 
 Route::get('system/changeEmail', 'AdminController@changeEmail')->middleware(['auth'])->name('system.changeEmail');
 Route::post('system/changeEmailPost', 'AdminController@changeEmailPost')->middleware(['auth'])->name('system.changeEmailPost');

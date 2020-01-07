@@ -1,7 +1,7 @@
 <div id="page_header">
     <div class="left">
         <a class="logo" href="{{url('/')}}">
-            <img src="{{asset('img/dramania-light.png')}}" width="220px" height="57px">
+            <img src="{{asset('img/logo.png')}}" width="140px" height="auto">
         </a>
     </div>
     <div class="right">

@@ -27,7 +27,7 @@
                         <div id="content">
                             <div id="logo">
                                 <a href="{{url('/')}}">
-                                    <img src="{{asset('img/dramania-light.png')}}" width="200px" height="52px">
+                                    <img src="{{asset('img/logo.png')}}" width="160px;" height="auto">
                                 </a>
                             </div>
                             <div id="form">
