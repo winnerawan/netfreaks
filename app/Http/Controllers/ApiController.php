@@ -59,11 +59,9 @@ class ApiController extends Controller
     }
 
     public function latests() {        
-        $movies = \App\DramaTag::join('tags', 'drama_tags.tag_id', 'tags.id')
-                ->join('dramas', 'drama_tags.drama_id', 'dramas.id')
-                ->where('language_id', \App\Language::LANG_EN)
-                ->where('tags.id', \App\Tag::TAG_LATEST)
-                ->select('dramas.*')
+        $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
+                ->orderBy('release', 'DESC')
+                ->select('movies.*')
                 ->paginate(10);
         return response($movies)
         ->header('Content-Type', 'application/json');
