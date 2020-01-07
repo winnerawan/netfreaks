@@ -36,4 +36,5 @@ Route::get('/latests', 'ApiController@latests');
 Route::get('/stream', 'ApiController@getStreamLink');
 Route::get('/movies', 'ApiController@movies');
 Route::get('/ads', 'ApiController@ads');
+Route::get('/stream', 'ApiController@getStreamLink');
 Route::get('/languages', 'ApiController@languages');

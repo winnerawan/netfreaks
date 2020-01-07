@@ -78,4 +78,35 @@ class ApiController extends Controller
         ->header('Content-Type', 'application/json');
     }
 
+    public function getStreamLink(Request $request) {
+        $link = $this->stream($request->slug);
+        return response($link)
+            ->header('Content-Type', 'application/json');
+    }
+
+    protected function req($url, $post=null){
+        $ch = curl_init(); 
+        curl_setopt($ch, CURLOPT_URL, $url);
+            if($post != null){
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+            }
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $headers = array();
+        $headers[] = 'User-Agent: Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Mobile Safari/537.36';
+        $headers[] = 'X-Requested-With: XMLHttpRequest';
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        return curl_exec($ch);
+    }
+
+    protected function stream($n){
+        $links = array();
+        $f = $this->req("https://d21.tv/ajax/movie.php", "slug=".$n);
+        preg_match_all('/<a href="(.*?)" target="iframe" class="(.*?)">/', $f, $d);
+        foreach ($d[1] as $key => $value) {
+            $links[] = array('link' => $value);
+        } 
+        return array("stream" => $links);
+    }
+
 }
