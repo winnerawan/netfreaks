@@ -158,19 +158,6 @@
                         </td>
                         @if($record->status->isStatusDraft())
                         <td>
-                            @if($record->type->id == \App\XlsFileType::TYPE_SERIES)
-                            <form method="post" action="{{ route('system.insertDrama') }}" accept-charset="UTF-8"
-                                autocomplete="off">
-                                {{csrf_field()}}
-                                <input type="hidden" name="xls_id" value="{{ $record->id }}">
-                                <input type="hidden" name="language_id" value="{{ $record->language_id }}">
-                                <button type="submit" class="btn btn-sm btn-white process">
-                                    <i class="icon-login"></i>
-                                    &nbsp;
-                                    Proses
-                                </button>
-                            </form>
-                            @else 
                             <form method="post" action="{{ route('system.insertMovie') }}" accept-charset="UTF-8"
                                 autocomplete="off">
                                 {{csrf_field()}}
@@ -182,7 +169,6 @@
                                     Proses
                                 </button>
                             </form>
-                            @endif
                         </td>
                         <td>
                             <form method="post" action="{{ route('system.removeDraft') }}" accept-charset="UTF-8"
