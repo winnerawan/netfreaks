@@ -202,7 +202,7 @@ class AdminController extends Controller
         }
         $xls->xls_status_id = \App\XlsStatus::STATUS_DELETED;
 
-        foreach(\App\Drama::where('xls_id', $xls->id)->get() as $drama) {
+        foreach(\App\Movie::where('xls_id', $xls->id)->get() as $drama) {
             // $drama->
             // $drama->delete();
         }
