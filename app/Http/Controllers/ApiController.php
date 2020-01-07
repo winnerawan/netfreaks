@@ -51,7 +51,7 @@ class ApiController extends Controller
     public function populars() {
         $movies = \App\Movie::where('language_id', \App\Language::LANG_EN)
                 ->whereRaw("rating REGEXP '^-?[0-9]+$'")
-                ->select('movies.*')->orderBy('rating', 'DESC')
+                ->select('movies.*')->orderBy('release', 'ASC')->orderBy('rating', 'DESC')
                 ->paginate(10);
         return response($movies)
         ->header('Content-Type', 'application/json');
