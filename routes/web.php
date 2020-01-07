@@ -40,7 +40,7 @@ Route::post('system/upload', 'AdminController@upload')->middleware(['auth'])->na
 Route::post('system/insertMovie', 'AdminController@insertMovie')->middleware(['auth'])->name('system.insertMovie');
 Route::post('system/removeDraft', 'AdminController@removeDraft')->middleware(['auth'])->name('system.removeDraft');
 
-Route::get('system/searchDrama', 'SearchController@searchDrama')->middleware(['auth'])->name('system.searchDrama');
+Route::get('system/searchMovie', 'SearchController@searchMovie')->middleware(['auth'])->name('system.searchMovie');
 
 // Route::get('system/tags', 'AdminController@tags')->middleware(['auth'])->name('system.tags');
 // Route::get('system/createTag', 'AdminController@createTag')->middleware(['auth'])->name('system.createTag');
@@ -64,5 +64,6 @@ Route::post('system/updateAdsPost/{id}', 'AdminController@updateAdsPost')->middl
 Route::get('system/movies', 'AdminController@movies')->middleware(['auth'])->name('system.movies');
 Route::get('system/createMovie', 'AdminController@createMovie')->middleware(['auth'])->name('system.createMovie');
 Route::get('system/editMovie/{id}', 'AdminController@editMovie')->middleware(['auth'])->name('system.editMovie');
+Route::get('system/deleteMovie/{id}', 'AdminController@deleteMovie')->middleware(['auth'])->name('system.deleteMovie');
 Route::post('system/createMoviePost', 'AdminController@createMoviePost')->middleware(['auth'])->name('system.createMoviePost');
 Route::post('system/editMoviePost/{id}', 'AdminController@editMoviePost')->middleware(['auth'])->name('system.editMoviePost');

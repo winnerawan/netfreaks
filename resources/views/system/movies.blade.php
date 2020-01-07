@@ -98,6 +98,13 @@
                                                         Edit
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a href="{{url('system/deleteMovie', $record->id)}}">
+                                                        <i class="icon-trash"></i>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        Delete
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
 
@@ -142,7 +149,7 @@
     $('.search').select2({
         placeholder: 'Search...',
         ajax: {
-          url: '{{ url("system/searchDrama") }}',
+          url: '{{ url("system/searchMovie") }}',
           dataType: 'json',
           delay: 250,
           processResults: function (data) {

@@ -445,9 +445,13 @@ class AdminController extends Controller
         return redirect()->route('system.ads');
     }
 
-    public function movies() {
+    public function movies(Request $request) {
+        $records = \App\Movie::paginate(50);
+        if ($request->title!=null) {
+            $records = \App\Movie::where("title", "LIKE", "%{$request->title}%")->orderBy('title', 'ASC')->paginate(50);
+        } 
         return view('system.movies')->with([
-            'records' => \App\Movie::paginate(50)
+            'records' => $records
         ]);
     }
 
@@ -479,6 +483,12 @@ class AdminController extends Controller
         return view('system.update_movie')->with([
             'record' => \App\Movie::findOrFail($id)
         ]);
+    }
+
+    public function deleteMovie(Request $request, $id) {
+        $movie = \App\Movie::findOrFail($id);
+        $movie->delete();
+        return redirect()->route('system.movies');
     }
 
     public function editMoviePost(Request $request, $id) {

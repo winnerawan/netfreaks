@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Drama;
+use App\Movie;
 use App\Genre;
 use Illuminate\Http\Request;
 use DB;
@@ -10,9 +10,9 @@ use DB;
 class SearchController extends Controller
 {
 
-    public function searchDrama(Request $request) {
+    public function searchMovie(Request $request) {
         if ($request->has('q')) {
-            $data = Drama::select("id", "title")->where("title", "LIKE", "%{$request->q}%")->get();
+            $data = Movie::select("id", "title")->where("title", "LIKE", "%{$request->q}%")->get();
             return response()->json($data);
         }
     }
