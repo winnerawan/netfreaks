@@ -473,6 +473,10 @@ class AdminController extends Controller
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
         $movie->link = $request->link;
+        foreach (explode(',', $request->genres) as $key => $value) {
+            $genres[] = $value;
+        }
+        $movie->genres = $genres;
         $movie->rating = $request->rating;
         $movie->poster = $request->poster;
         $movie->country = $request->country;

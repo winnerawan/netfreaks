@@ -36,7 +36,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
                                 RATING
@@ -44,30 +44,54 @@
                             <input required type="number" name="rating" class="form-control">
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
-                                GENRE
+                                QUALITY
                             </label>
-                            <input required type="text" name="genre" class="form-control">
+                            <input required type="text" name="quality" class="form-control">
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <label class="form-label">
-                                URL
+                                COUNTRY
                             </label>
-                            <input required type="text" name="url" class="form-control">
+                            <input required type="text" name="country" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label class="form-label">
+                                Release
+                            </label>
+                            <input required type="text" name="release" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="form-label">
+                                GENRES <sup>Separated with comma (ex: Horror, Action)</sup>
+                            </label>
+                            <input required type="text" name="genres" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label class="form-label">
+                                LINK
+                            </label>
+                            <input required type="text" name="link" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="form-label">
-                                DESCRIPTION
+                                SYNOPSIS
                             </label>
-                            <textarea rows="3" required type="text" name="description" class="form-control">
+                            <textarea rows="3" required type="text" name="synopsis" class="form-control">
                             </textarea>
                         </div>
                     </div>
